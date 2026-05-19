@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --green: #38B109;
+  --cyan: #1DD6F6;
+  --bg-deep: #00000F;
+  --bg-surface: #080818;
+  --bg-card: #0d0d20;
+  --bg-card-hover: #12122a;
+  --text-white: #f0f2f5;
+  --text-gray-100: #c8ccd4;
+  --text-gray-300: #8a90a0;
+  --text-gray-500: #555b6e;
+  --text-gray-700: #2a2e3d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-white);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}

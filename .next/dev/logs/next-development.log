@@ -1,0 +1,101 @@
+{"timestamp":"00:00:04.672","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:04.705","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:00:05.172","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:00:47.276","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:00:47.278","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:00:55.408","source":"Server","level":"LOG","message":"○ Compiling /_not-found ..."}
+{"timestamp":"00:00:56.171","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:01:08.525","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:01:11.288","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:01:14.304","source":"Server","level":"LOG","message":"○ Compiling /admin/login ..."}
+{"timestamp":"00:01:15.641","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:01:16.663","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload"}
+{"timestamp":"00:01:26.120","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:01:26.481","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:01:26.630","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:03:19.499","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:03:21.732","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:03:22.224","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:03:22.321","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:20:47.641","source":"Server","level":"ERROR","message":"[register] Insert error: {}"}
+{"timestamp":"00:21:03.910","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:21:05.191","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:22:14.006","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:24:09.293","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:24:10.731","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:24:11.799","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:25:30.137","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:25:31.119","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:27:21.644","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:27:22.854","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:27:22.936","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:27:34.978","source":"Server","level":"ERROR","message":"[register] Insert error: {}"}
+{"timestamp":"00:29:59.414","source":"Server","level":"ERROR","message":"[register] Insert error: {}"}
+{"timestamp":"00:30:01.327","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:30:07.458","source":"Server","level":"ERROR","message":"[register] Insert error: {}"}
+{"timestamp":"00:32:37.203","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:32:43.717","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:32:54.649","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:33:03.169","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:33:30.767","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:45:03.236","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:45:28.734","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:47:01.063","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:51:30.345","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:51:31.177","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:52:03.649","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:53:09.167","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:16.169","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:16.169","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:26.173","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:26.173","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:32.165","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:41.167","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:53:48.163","source":"Browser","level":"ERROR","message":"uncaughtError: Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.749","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.749","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.750","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.751","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.751","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.752","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.752","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.753","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.754","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.754","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.756","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.757","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.758","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.759","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:22.760","source":"Server","level":"ERROR","message":"[browser] \"Uncaught Error: Internal Next.js error: Router action dispatched before initialization.\""}
+{"timestamp":"00:54:22.761","source":"Browser","level":"ERROR","message":"Uncaught Error: Internal Next.js error: Router action dispatched before initialization."}
+{"timestamp":"00:54:28.908","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:54:43.634","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:57:25.852","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:57:26.426","source":"Server","level":"ERROR","message":"⨯ ReferenceError: chartData is not defined"}
+{"timestamp":"00:57:26.544","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: chartData is not defined"}
+{"timestamp":"00:57:26.661","source":"Server","level":"ERROR","message":"[browser] \"Uncaught ReferenceError: chartData is not defined\\n    at AdminDashboard (src\\\\app\\\\admin\\\\page.tsx:76:32)\\n  74 |   }, [])\\n  75 |\\n> 76 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\\n     |                                ^\\n  77 |\\n  78 |   const ranking = Object.entries(\\n  79 |     stats.allData.reduce((acc: Record<string, number>, r) => {\""}
+{"timestamp":"00:57:26.661","source":"Browser","level":"ERROR","message":"Uncaught ReferenceError: chartData is not defined\n    at AdminDashboard (src\\app\\admin\\page.tsx:76:32)\n  74 |   }, [])\n  75 |\n> 76 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\n     |                                ^\n  77 |\n  78 |   const ranking = Object.entries(\n  79 |     stats.allData.reduce((acc: Record<string, number>, r) => {"}
+{"timestamp":"00:57:27.723","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:57:27.968","source":"Server","level":"ERROR","message":"[browser] \"Uncaught ReferenceError: chartData is not defined\\n    at AdminDashboard (src\\\\app\\\\admin\\\\page.tsx:76:32)\\n  74 |   }, [])\\n  75 |\\n> 76 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\\n     |                                ^\\n  77 |\\n  78 |   const ranking = Object.entries(\\n  79 |     stats.allData.reduce((acc: Record<string, number>, r) => {\""}
+{"timestamp":"00:57:27.969","source":"Browser","level":"ERROR","message":"Uncaught ReferenceError: chartData is not defined\n    at AdminDashboard (src\\app\\admin\\page.tsx:76:32)\n  74 |   }, [])\n  75 |\n> 76 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\n     |                                ^\n  77 |\n  78 |   const ranking = Object.entries(\n  79 |     stats.allData.reduce((acc: Record<string, number>, r) => {"}
+{"timestamp":"00:57:27.969","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: chartData is not defined"}
+{"timestamp":"00:57:30.727","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:57:31.289","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:57:32.080","source":"Server","level":"ERROR","message":"⨯ ReferenceError: chartData is not defined"}
+{"timestamp":"00:57:32.519","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:57:32.693","source":"Browser","level":"ERROR","message":"uncaughtError: ReferenceError: chartData is not defined"}
+{"timestamp":"00:57:32.763","source":"Server","level":"ERROR","message":"[browser] \"Uncaught ReferenceError: chartData is not defined\\n    at AdminDashboard (src\\\\app\\\\admin\\\\page.tsx:66:32)\\n  64 |   }, [])\\n  65 |\\n> 66 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\\n     |                                ^\\n  67 |\\n  68 |   const ranking = Object.entries(\\n  69 |     stats.allData.reduce((acc: Record<string, number>, r) => {\""}
+{"timestamp":"00:57:32.763","source":"Browser","level":"ERROR","message":"Uncaught ReferenceError: chartData is not defined\n    at AdminDashboard (src\\app\\admin\\page.tsx:66:32)\n  64 |   }, [])\n  65 |\n> 66 |   const maxCount = Math.max(...chartData.map(d => d.count), 1)\n     |                                ^\n  67 |\n  68 |   const ranking = Object.entries(\n  69 |     stats.allData.reduce((acc: Record<string, number>, r) => {"}
+{"timestamp":"00:57:35.301","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:57:35.885","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:57:37.759","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"00:58:46.973","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:04:01.168","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:04:08.529","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:06:49.929","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:06:51.606","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:07:02.321","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:09:50.863","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:09:51.880","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:44.578","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:12:46.243","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
