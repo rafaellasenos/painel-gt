@@ -18,6 +18,14 @@ export default function RegistrationsPage() {
   const [company, setCompany] = useState('')
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
+  const [gt, setGt] = useState('')
+
+  const GT_OPTIONS = [
+    'GT - Gestão e Estratégia',
+    'GT - Pessoas e Processos',
+    'GT - Marketing e Vendas',
+    'GT - IA e Inovação',
+  ]
 
   const buildParams = useCallback((p: number) => {
     const params = new URLSearchParams({ page: String(p), limit: '20' })
@@ -25,8 +33,9 @@ export default function RegistrationsPage() {
     if (company) params.set('company', company)
     if (dateFrom) params.set('dateFrom', dateFrom)
     if (dateTo) params.set('dateTo', dateTo)
+    if (gt) params.set('gt', gt)
     return params.toString()
-  }, [search, company, dateFrom, dateTo])
+  }, [search, company, dateFrom, dateTo, gt])
 
   async function load(p: number) {
     setLoading(true)
@@ -41,7 +50,7 @@ export default function RegistrationsPage() {
     }
   }
 
-  useEffect(() => { setPage(1); load(1) }, [search, company, dateFrom, dateTo])
+  useEffect(() => { setPage(1); load(1) }, [search, company, dateFrom, dateTo, gt])
   useEffect(() => { load(page) }, [page])
 
   async function handleExportPDF() {
@@ -53,6 +62,7 @@ export default function RegistrationsPage() {
       if (company) params.set('company', company)
       if (dateFrom) params.set('dateFrom', dateFrom)
       if (dateTo) params.set('dateTo', dateTo)
+      if (gt) params.set('gt', gt)
 
       const res = await fetch(`/api/admin/registrations?${params.toString()}`)
       const json = await res.json()
@@ -139,11 +149,47 @@ export default function RegistrationsPage() {
 
         {/* Filtros */}
         <div style={{ background: '#0d0d20', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.04)', padding: '20px', marginBottom: '16px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '14px' }}>
             <Input id="search" label="Buscar por nome ou cargo" type="text" placeholder="Digite para buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />
             <Input id="company" label="Empresa" type="text" placeholder="Filtrar por empresa" value={company} onChange={(e) => setCompany(e.target.value)} />
             <Input id="dateFrom" label="Data inicial" type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
             <Input id="dateTo" label="Data final" type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <label style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8a90a0', letterSpacing: '0.5px' }}>
+                Grupo de Trabalho
+              </label>
+              <div style={{ position: 'relative' }}>
+                <select
+                  value={gt}
+                  onChange={e => setGt(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '14px 36px 14px 14px',
+                    borderRadius: '10px',
+                    border: '1px solid #2a2e3d',
+                    background: '#080818',
+                    color: gt ? '#f0f2f5' : '#555b6e',
+                    fontSize: '13px',
+                    fontFamily: "'DM Sans', sans-serif",
+                    outline: 'none',
+                    appearance: 'none',
+                    cursor: 'pointer',
+                  }}
+                  onFocus={e => { e.currentTarget.style.borderColor = '#1DD6F6' }}
+                  onBlur={e => { e.currentTarget.style.borderColor = '#2a2e3d' }}
+                >
+                  <option value="">Todos os GTs</option>
+                  {GT_OPTIONS.map(opt => (
+                    <option key={opt} value={opt} style={{ background: '#080818', color: '#f0f2f5' }}>{opt}</option>
+                  ))}
+                </select>
+                <div style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: '#555b6e' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

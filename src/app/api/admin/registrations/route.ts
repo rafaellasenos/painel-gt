@@ -13,6 +13,7 @@ export async function GET(request: NextRequest) {
   const company = searchParams.get('company') ?? ''
   const dateFrom = searchParams.get('dateFrom') ?? ''
   const dateTo = searchParams.get('dateTo') ?? ''
+  const gt = searchParams.get('gt') ?? ''
 
   const admin = createAdminClient()
   let query = admin.from('registrations').select('*', { count: 'exact' })
@@ -22,6 +23,9 @@ export async function GET(request: NextRequest) {
   }
   if (company) {
     query = query.ilike('company', `%${company}%`)
+  }
+  if (gt) {
+    query = query.eq('meeting_title', gt)
   }
   if (dateFrom) {
     query = query.gte('created_at', dateFrom)
