@@ -13,6 +13,28 @@ export interface CompanyGroup {
   }[]
 }
 
+// Aliases fixos: variações -> { chave normalizada, nome de exibição }
+const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayName: string }> = [
+  {
+    variants: ['expx', 'exponencial', 'software house exponencial', 'exponencial software house', 'swh exponencial'],
+    canonical: 'expx',
+    displayName: 'EXPX',
+  },
+]
+
+function resolveAlias(normalizedKey: string): string {
+  for (const alias of COMPANY_ALIASES) {
+    if (alias.variants.some((v: string) => normalizedKey.includes(v) || v.includes(normalizedKey))) {
+      return alias.canonical
+    }
+  }
+  return normalizedKey
+}
+
+function getAliasDisplayName(canonical: string): string | null {
+  return COMPANY_ALIASES.find(a => a.canonical === canonical)?.displayName ?? null
+}
+
 // Sufixos corporativos que não diferenciam empresas
 const CORPORATE_SUFFIXES = [
   'solutions', 'solution', 'solucoes', 'solução', 'solucao',
@@ -84,16 +106,17 @@ export async function GET(request: NextRequest) {
 
   for (const row of data) {
     const rawName = row.company.trim()
-    const key = normalizeCompanyKey(rawName)
+    const key = resolveAlias(normalizeCompanyKey(rawName))
 
     if (!map.has(key)) {
-      map.set(key, { company: rawName, total: 0, collaborators: [], _variants: [rawName] })
+      const displayName = getAliasDisplayName(key) ?? rawName
+      map.set(key, { company: displayName, total: 0, collaborators: [], _variants: [rawName] })
     }
 
     const group = map.get(key)!
 
-    // Mantém o nome mais completo (mais caracteres) como nome de exibição
-    if (rawName.length > group.company.length) {
+    // Se não for alias fixo, mantém o nome mais completo como exibição
+    if (!getAliasDisplayName(key) && rawName.length > group.company.length) {
       group.company = rawName
     }
     group._variants.push(rawName)
