@@ -1,5 +1,5 @@
+import { NextRequest, NextResponse } from 'next/server'
 import { createClient, createAdminClient } from '@/lib/supabase/server'
-import { NextResponse } from 'next/server'
 
 export interface CompanyGroup {
   company: string
@@ -13,16 +13,30 @@ export interface CompanyGroup {
   }[]
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
 
+  const { searchParams } = new URL(request.url)
+  const dateFrom = searchParams.get('dateFrom') ?? ''
+  const dateTo = searchParams.get('dateTo') ?? ''
+
   const admin = createAdminClient()
-  const { data, error } = await admin
+  let query = admin
     .from('registrations')
     .select('id, name, email, company, meeting_title, created_at')
-    .order('created_at', { ascending: false })
+
+  if (dateFrom) {
+    query = query.gte('created_at', dateFrom)
+  }
+  if (dateTo) {
+    const end = new Date(dateTo)
+    end.setHours(23, 59, 59, 999)
+    query = query.lte('created_at', end.toISOString())
+  }
+
+  const { data, error } = await query.order('created_at', { ascending: false })
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })
