@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient, createAdminClient } from '@/lib/supabase/server'
+import { resolveCompanyKey, getCompanyDisplayName } from '@/lib/company-normalize'
 
 export interface DashboardStats {
   total: number
@@ -51,19 +52,30 @@ export async function GET() {
     if (gt) byGT[gt] = (byGT[gt] ?? 0) + 1
   }
 
-  // Top 10 empresas por contagem
+  // Top 10 empresas por contagem (com normalização/unificação igual à tela Por Empresa)
   const { data: companyData } = await admin
     .from('registrations')
     .select('company')
 
-  const companyCounts: Record<string, number> = {}
+  const canonicalCounts = new Map<string, { displayName: string, count: number }>()
   for (const row of companyData ?? []) {
-    const c = (row.company ?? '').trim()
-    if (c) companyCounts[c] = (companyCounts[c] ?? 0) + 1
+    const rawName = (row.company ?? '').trim()
+    if (!rawName) continue
+    const key = resolveCompanyKey(rawName)
+    const displayName = getCompanyDisplayName(key, rawName)
+    if (!canonicalCounts.has(key)) {
+      canonicalCounts.set(key, { displayName, count: 0 })
+    }
+    const entry = canonicalCounts.get(key)!
+    entry.count += 1
+    // Mantém o nome mais completo se não houver alias fixo
+    if (!getCompanyDisplayName(key, '') && rawName.length > entry.displayName.length) {
+      entry.displayName = rawName
+    }
   }
 
-  const topCompanies = Object.entries(companyCounts)
-    .map(([company, count]) => ({ company, count }))
+  const topCompanies = Array.from(canonicalCounts.values())
+    .map(({ displayName, count }) => ({ company: displayName, count }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 10)
 
