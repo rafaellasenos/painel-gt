@@ -2,32 +2,52 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
-const navItems = [
-  {
-    href: '/admin', label: 'Dashboard',
-    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="14" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="3" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="14" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/></svg>,
-  },
-  {
-    href: '/admin/registrations', label: 'Registros',
-    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
-  },
-  {
-    href: '/admin/settings', label: 'Configurações',
-    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round"/><path strokeLinecap="round" strokeLinejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" /></svg>,
-  },
-]
+const iconDashboard = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="14" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="3" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/><rect x="14" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+const iconRegistros = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+const iconSettings = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round"/><path strokeLinecap="round" strokeLinejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" /></svg>
+const iconChevron = (open: boolean) => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+    style={{ transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+)
+
+const navLinkStyle = (active: boolean): React.CSSProperties => ({
+  display: 'flex', alignItems: 'center', gap: '10px',
+  padding: '10px 12px', borderRadius: '10px',
+  fontSize: '13px', fontWeight: active ? 600 : 500,
+  textDecoration: 'none', transition: 'all 0.2s',
+  background: active ? 'rgba(29,214,246,0.08)' : 'transparent',
+  color: active ? '#1DD6F6' : '#8a90a0',
+  border: active ? '1px solid rgba(29,214,246,0.15)' : '1px solid transparent',
+  fontFamily: "'DM Sans', sans-serif",
+})
+
+const subLinkStyle = (active: boolean): React.CSSProperties => ({
+  display: 'flex', alignItems: 'center',
+  padding: '7px 10px', borderRadius: '8px',
+  fontSize: '12px', fontWeight: active ? 600 : 400,
+  textDecoration: 'none', transition: 'all 0.2s',
+  color: active ? '#1DD6F6' : '#555b6e',
+  background: active ? 'rgba(29,214,246,0.06)' : 'transparent',
+  fontFamily: "'DM Sans', sans-serif",
+})
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const router = useRouter()
+  const [registrosOpen, setRegistrosOpen] = useState(pathname.startsWith('/admin/registrations'))
 
   async function handleLogout() {
     const supabase = createClient()
     await supabase.auth.signOut()
     router.push('/admin/login')
   }
+
+  const registrosActive = pathname.startsWith('/admin/registrations')
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#00000F' }}>
@@ -39,28 +59,49 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         <nav style={{ flex: 1, padding: '12px 10px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          {navItems.map((item) => {
-            const active = pathname === item.href
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
-                  padding: '10px 12px', borderRadius: '10px',
-                  fontSize: '13px', fontWeight: active ? 600 : 500,
-                  textDecoration: 'none', transition: 'all 0.2s',
-                  background: active ? 'rgba(29,214,246,0.08)' : 'transparent',
-                  color: active ? '#1DD6F6' : '#8a90a0',
-                  border: active ? '1px solid rgba(29,214,246,0.15)' : '1px solid transparent',
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
-              >
-                <span style={{ display: 'flex' }}>{item.icon}</span>
-                {item.label}
-              </Link>
-            )
-          })}
+          {/* Dashboard */}
+          <Link href="/admin" style={navLinkStyle(pathname === '/admin')}>
+            <span style={{ display: 'flex' }}>{iconDashboard}</span>
+            Dashboard
+          </Link>
+
+          {/* Registros — expansível */}
+          <div>
+            <button
+              onClick={() => setRegistrosOpen(!registrosOpen)}
+              style={{
+                ...navLinkStyle(registrosActive),
+                width: '100%', cursor: 'pointer', border: 'none',
+                justifyContent: 'space-between',
+                background: registrosActive ? 'rgba(29,214,246,0.08)' : 'transparent',
+              }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ display: 'flex' }}>{iconRegistros}</span>
+                Registros
+              </span>
+              <span style={{ display: 'flex', color: registrosActive ? '#1DD6F6' : '#555b6e' }}>
+                {iconChevron(registrosOpen)}
+              </span>
+            </button>
+
+            {registrosOpen && (
+              <div style={{ marginLeft: '12px', marginTop: '2px', paddingLeft: '12px', borderLeft: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                <Link href="/admin/registrations" style={subLinkStyle(pathname === '/admin/registrations')}>
+                  Todos
+                </Link>
+                <Link href="/admin/registrations/companies" style={subLinkStyle(pathname === '/admin/registrations/companies')}>
+                  Por Empresa
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Configurações */}
+          <Link href="/admin/settings" style={navLinkStyle(pathname === '/admin/settings')}>
+            <span style={{ display: 'flex' }}>{iconSettings}</span>
+            Configurações
+          </Link>
         </nav>
 
         <div style={{ padding: '12px 10px', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
