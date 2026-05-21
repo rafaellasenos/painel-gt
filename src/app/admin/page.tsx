@@ -84,7 +84,7 @@ export default function AdminDashboard() {
                 label: gt.replace('GT - ', ''),
                 full: gt,
                 count: stats.byGT[gt] ?? 0,
-              }))
+              })).sort((a, b) => b.count - a.count)
               const maxGT = Math.max(...gtCounts.map(g => g.count), 1)
               const colors = ['#1DD6F6', '#38B109', '#f0c040', '#818cf8']
               return (
