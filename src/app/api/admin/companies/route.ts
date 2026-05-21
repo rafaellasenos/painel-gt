@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
     })
   }
 
-  const groups = Array.from(map.values()).sort((a, b) => b.total - a.total)
+  const groups = Array.from(map.values()).sort((a, b) => a.company.localeCompare(b.company, 'pt-BR', { sensitivity: 'base' }))
 
   return NextResponse.json(groups)
 }
