@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { createClient } from '@/lib/supabase/client'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
@@ -101,10 +102,9 @@ export default function RegisterPage() {
         {!showForm && !success && (
           <div style={{ textAlign: 'center', animation: 'fadeInUp 0.6s ease both' }}>
 
-            {/* Badge GT */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '7px 20px', borderRadius: '100px', background: 'rgba(29,214,246,0.08)', border: '1px solid rgba(29,214,246,0.2)', marginBottom: '28px' }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1DD6F6" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              <span style={{ fontSize: '11px', fontWeight: 700, color: '#1DD6F6', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Grupo de Trabalho</span>
+            {/* Logo EXPX */}
+            <div style={{ marginBottom: '36px' }}>
+              <Image src="/logo-expx.png" alt="EXPX" width={140} height={36} priority />
             </div>
 
             {/* Headline */}
@@ -117,14 +117,14 @@ export default function RegisterPage() {
               color: '#f0f2f5',
               marginBottom: '20px',
             }}>
-              Pronto para o{' '}
+              Pronto para<br />
               <span style={{
                 background: 'linear-gradient(135deg, #38B109, #1DD6F6)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}>
-                GT de hoje?
+                o GT de hoje?
               </span>
             </h1>
 
