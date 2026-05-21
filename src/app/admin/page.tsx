@@ -102,7 +102,7 @@ export default function AdminDashboard() {
                           transition: 'height 0.6s ease',
                         }} />
                       </div>
-                      <span style={{ fontSize: '10px', color: '#555b6e', textAlign: 'center', lineHeight: 1.3, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>{gt.label}</span>
+                      <span style={{ fontSize: '10px', color: '#555b6e', textAlign: 'center', lineHeight: 1.3, wordBreak: 'break-word', maxWidth: '100%' }}>{gt.label}</span>
                     </div>
                   ))}
                 </div>
