@@ -103,8 +103,8 @@ export default function RegisterPage() {
           <div style={{ textAlign: 'center', animation: 'fadeInUp 0.6s ease both' }}>
 
             {/* Logo EXPX */}
-            <div style={{ marginBottom: '36px' }}>
-              <Image src="/logo-expx.png" alt="EXPX" width={140} height={36} priority />
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '36px' }}>
+              <Image src="/logo-expx.png" alt="EXPX" width={72} height={18} priority />
             </div>
 
             {/* Headline */}
