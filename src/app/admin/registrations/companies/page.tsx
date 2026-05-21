@@ -204,21 +204,37 @@ export default function CompaniesPage() {
   const [groups, setGroups] = useState<CompanyGroup[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
+  // inputs controlados pelo usuário (não disparam fetch ao mudar)
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
+  // datas aplicadas (disparam fetch)
+  const [appliedFrom, setAppliedFrom] = useState('')
+  const [appliedTo, setAppliedTo] = useState('')
   const [selectedCompany, setSelectedCompany] = useState('')
 
-  const fetchGroups = useCallback(() => {
+  const fetchGroups = useCallback((from: string, to: string) => {
     setLoading(true)
     const params = new URLSearchParams()
-    if (dateFrom) params.set('dateFrom', dateFrom)
-    if (dateTo) params.set('dateTo', dateTo)
+    if (from) params.set('dateFrom', from)
+    if (to) params.set('dateTo', to)
     fetch(`/api/admin/companies?${params.toString()}`)
       .then(r => r.json())
       .then(data => { setGroups(data); setLoading(false) })
-  }, [dateFrom, dateTo])
+  }, [])
 
-  useEffect(() => { fetchGroups() }, [fetchGroups])
+  useEffect(() => { fetchGroups(appliedFrom, appliedTo) }, [fetchGroups, appliedFrom, appliedTo])
+
+  function handleApplyFilter() {
+    setAppliedFrom(dateFrom)
+    setAppliedTo(dateTo)
+  }
+
+  function handleClearDates() {
+    setDateFrom('')
+    setDateTo('')
+    setAppliedFrom('')
+    setAppliedTo('')
+  }
 
   const filtered = groups.filter(g =>
     g.company.toLowerCase().includes(search.toLowerCase())
@@ -303,13 +319,24 @@ export default function CompaniesPage() {
               />
             </div>
 
+            {/* Aplicar */}
+            <button
+              onClick={handleApplyFilter}
+              style={{ ...btnBase, background: 'rgba(29,214,246,0.1)', color: '#1DD6F6', border: '1px solid rgba(29,214,246,0.15)' }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 111 11a6 6 0 0116 0z" />
+              </svg>
+              Aplicar
+            </button>
+
             {/* Limpar */}
-            {(dateFrom || dateTo) && (
+            {(appliedFrom || appliedTo) && (
               <button
-                onClick={() => { setDateFrom(''); setDateTo('') }}
-                style={{ ...btnBase, background: 'transparent', color: '#555b6e', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '0' }}
+                onClick={handleClearDates}
+                style={{ ...btnBase, background: 'transparent', color: '#555b6e', border: '1px solid rgba(255,255,255,0.06)' }}
               >
-                Limpar datas
+                Limpar
               </button>
             )}
 
