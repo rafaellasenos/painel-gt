@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/server'
+import { validateName, validateRole, validateCompany } from '@/lib/validation'
 
 export async function POST(request: NextRequest) {
   try {
@@ -7,9 +8,12 @@ export async function POST(request: NextRequest) {
     const { name, email: role, company } = body
 
     const errors: Record<string, string> = {}
-    if (!name || name.trim().length < 2) errors.name = 'Nome deve ter pelo menos 2 caracteres'
-    if (!role || role.trim().length < 2) errors.email = 'Preencha seu cargo ou função'
-    if (!company || company.trim().length < 2) errors.company = 'Nome da empresa deve ter pelo menos 2 caracteres'
+    const nameResult = validateName(name ?? '')
+    if (!nameResult.valid) errors.name = nameResult.message!
+    const roleResult = validateRole(role ?? '')
+    if (!roleResult.valid) errors.email = roleResult.message!
+    const companyResult = validateCompany(company ?? '')
+    if (!companyResult.valid) errors.company = companyResult.message!
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json({ error: 'Dados inválidos', details: errors }, { status: 400 })

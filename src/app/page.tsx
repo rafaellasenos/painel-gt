@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
+import { validateName, validateRole, validateCompany } from '@/lib/validation'
 
 interface FormData {
   name: string
@@ -40,9 +41,12 @@ export default function RegisterPage() {
 
   function validate(): boolean {
     const newErrors: FormErrors = {}
-    if (!form.name.trim() || form.name.trim().length < 2) newErrors.name = 'Nome deve ter pelo menos 2 caracteres'
-    if (!form.role.trim() || form.role.trim().length < 2) newErrors.role = 'Preencha seu cargo ou função'
-    if (!form.company.trim() || form.company.trim().length < 2) newErrors.company = 'Nome da empresa deve ter pelo menos 2 caracteres'
+    const nameResult = validateName(form.name)
+    if (!nameResult.valid) newErrors.name = nameResult.message
+    const roleResult = validateRole(form.role)
+    if (!roleResult.valid) newErrors.role = roleResult.message
+    const companyResult = validateCompany(form.company)
+    if (!companyResult.valid) newErrors.company = companyResult.message
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
