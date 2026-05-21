@@ -78,7 +78,7 @@ const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayNam
     displayName: 'Explend Soluções Empresariais',
   },
   {
-    variants: ['exsis tecnologia', 'exsis tecnologia da informacao'],
+    variants: ['exsis', 'exsis tecnologia', 'exsis tecnologia da informacao'],
     canonical: 'exsis',
     displayName: 'Exsis Tecnologia da Informação',
   },
@@ -108,9 +108,9 @@ const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayNam
     displayName: 'Grupo IMendes',
   },
   {
-    variants: ['imonov'],
-    canonical: 'imonov',
-    displayName: 'Imonov',
+    variants: ['imonov', 'si9', 'si9 sistemas'],
+    canonical: 'si9',
+    displayName: 'Si9 Sistemas',
   },
   {
     variants: ['industrialmais'],
@@ -188,11 +188,6 @@ const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayNam
     displayName: 'ServiceLogic',
   },
   {
-    variants: ['si9', 'si9 sistemas'],
-    canonical: 'si9',
-    displayName: 'Si9 Sistemas',
-  },
-  {
     variants: ['sismais', 'sismais tecnologia'],
     canonical: 'sismais',
     displayName: 'Sismais Tecnologia',
@@ -223,9 +218,9 @@ const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayNam
     displayName: 'Tech Shop',
   },
   {
-    variants: ['tef.net', 'tef net', 'tef.net solucoes em meios de pagamentos'],
+    variants: ['tef.net', 'tef net', 'tef net solucoes em meios de pagamentos', 'tef.net solucoes'],
     canonical: 'tef net',
-    displayName: 'TEF.NET',
+    displayName: 'TEF.NET Soluções em Meios de Pagamentos',
   },
   {
     variants: ['thr', 'thr softwares'],
@@ -278,7 +273,7 @@ const COMPANY_ALIASES: Array<{ variants: string[], canonical: string, displayNam
     displayName: 'Solution Desenvolvimento',
   },
   {
-    variants: ['system design'],
+    variants: ['sd', 'system design'],
     canonical: 'system design',
     displayName: 'System Design',
   },
