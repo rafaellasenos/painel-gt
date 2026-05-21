@@ -77,7 +77,7 @@ export async function GET() {
   const topCompanies = Array.from(canonicalCounts.values())
     .map(({ displayName, count }) => ({ company: displayName, count }))
     .sort((a, b) => b.count - a.count)
-    .slice(0, 10)
+    .slice(0, 5)
 
   return NextResponse.json({
     total: total ?? 0,
