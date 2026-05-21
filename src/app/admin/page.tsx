@@ -14,7 +14,8 @@ interface Stats {
   total: number
   today: number
   week: number
-  allData: Array<{ company: string; created_at: string; meeting_title?: string }>
+  byGT: Record<string, number>
+  topCompanies: Array<{ company: string; count: number }>
 }
 
 function StatCard({ label, value, icon, color }: { label: string; value: number; icon: React.ReactNode; color: string }) {
@@ -34,28 +35,16 @@ function StatCard({ label, value, icon, color }: { label: string; value: number;
 }
 
 export default function AdminDashboard() {
-  const [stats, setStats] = useState<Stats>({ total: 0, today: 0, week: 0, allData: [] })
+  const [stats, setStats] = useState<Stats>({ total: 0, today: 0, week: 0, byGT: {}, topCompanies: [] })
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch('/api/admin/registrations?limit=1000&page=1')
+        const res = await fetch('/api/admin/stats')
         if (!res.ok) return
         const data = await res.json()
-
-        const all = data.data as Array<{ created_at: string }>
-        const now = new Date()
-        const todayStr = now.toDateString()
-        const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000)
-
-        setStats({
-          total: data.total,
-          today: all.filter(r => new Date(r.created_at).toDateString() === todayStr).length,
-          week: all.filter(r => new Date(r.created_at) >= weekAgo).length,
-          allData: all as Array<{ company: string; created_at: string }>,
-        })
-
+        setStats(data)
       } finally {
         setLoading(false)
       }
@@ -63,16 +52,7 @@ export default function AdminDashboard() {
     load()
   }, [])
 
-  const ranking = Object.entries(
-    stats.allData.reduce((acc: Record<string, number>, r) => {
-      acc[r.company] = (acc[r.company] ?? 0) + 1
-      return acc
-    }, {})
-  )
-    .map(([company, count]) => ({ company, count }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 10)
-
+  const ranking = stats.topCompanies
   const maxRank = ranking[0]?.count ?? 1
 
   return (
@@ -103,7 +83,7 @@ export default function AdminDashboard() {
               const gtCounts = GT_LIST.map(gt => ({
                 label: gt.replace('GT - ', ''),
                 full: gt,
-                count: stats.allData.filter(r => r.meeting_title === gt).length,
+                count: stats.byGT[gt] ?? 0,
               }))
               const maxGT = Math.max(...gtCounts.map(g => g.count), 1)
               const colors = ['#1DD6F6', '#38B109', '#f0c040', '#818cf8']
