@@ -52,32 +52,37 @@ export async function GET() {
     if (gt) byGT[gt] = (byGT[gt] ?? 0) + 1
   }
 
-  // Top 10 empresas por contagem (com normalização/unificação igual à tela Por Empresa)
+  // Top 5 empresas — desempate: mais GTs distintos; se igual, alfabético
   const { data: companyData } = await admin
     .from('registrations')
-    .select('company')
+    .select('company, meeting_title')
 
-  const canonicalCounts = new Map<string, { displayName: string, count: number }>()
+  const canonicalCounts = new Map<string, { displayName: string, count: number, gts: Set<string> }>()
   for (const row of companyData ?? []) {
     const rawName = (row.company ?? '').trim()
     if (!rawName) continue
     const key = resolveCompanyKey(rawName)
     const displayName = getCompanyDisplayName(key, rawName)
     if (!canonicalCounts.has(key)) {
-      canonicalCounts.set(key, { displayName, count: 0 })
+      canonicalCounts.set(key, { displayName, count: 0, gts: new Set() })
     }
     const entry = canonicalCounts.get(key)!
     entry.count += 1
-    // Mantém o nome mais completo se não houver alias fixo
+    if (row.meeting_title) entry.gts.add(row.meeting_title)
     if (!getCompanyDisplayName(key, '') && rawName.length > entry.displayName.length) {
       entry.displayName = rawName
     }
   }
 
   const topCompanies = Array.from(canonicalCounts.values())
-    .map(({ displayName, count }) => ({ company: displayName, count }))
-    .sort((a, b) => b.count - a.count)
+    .map(({ displayName, count, gts }) => ({ company: displayName, count, gtCount: gts.size }))
+    .sort((a, b) => {
+      if (b.count !== a.count) return b.count - a.count
+      if (b.gtCount !== a.gtCount) return b.gtCount - a.gtCount
+      return a.company.localeCompare(b.company, 'pt-BR', { sensitivity: 'base' })
+    })
     .slice(0, 5)
+    .map(({ company, count }) => ({ company, count }))
 
   return NextResponse.json({
     total: total ?? 0,
