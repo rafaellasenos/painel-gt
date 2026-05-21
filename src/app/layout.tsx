@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Reunião Online',
+  title: 'GT - Expx',
   description: 'Preencha o formulário para entrar na reunião',
 }
 
