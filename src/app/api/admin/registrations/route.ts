@@ -40,6 +40,7 @@ export async function GET(request: NextRequest) {
   const to = from + limit - 1
 
   const { data, count, error } = await query
+    .order('company', { ascending: true })
     .order('created_at', { ascending: false })
     .range(from, to)
 
