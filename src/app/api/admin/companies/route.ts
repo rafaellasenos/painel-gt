@@ -9,6 +9,7 @@ export interface CompanyGroup {
     id: string
     name: string
     email: string
+    rawCompany: string
     meeting_title: string
     created_at: string
   }[]
@@ -63,6 +64,7 @@ export async function GET(request: NextRequest) {
       id: row.id,
       name: row.name,
       email: row.email,
+      rawCompany: rawName,
       meeting_title: row.meeting_title ?? '',
       created_at: row.created_at,
     })

@@ -95,14 +95,5 @@ export function validateCompany(value: string): ValidationResult {
   if (!trimmed || trimmed.length < 2)
     return { valid: false, message: 'Nome da empresa muito curto.' }
 
-  if (!ALLOWED_CHARS.test(trimmed))
-    return { valid: false, message: 'Use apenas letras, números e espaços. Sem caracteres especiais.' }
-
-  if (BLOCKED_VALUES.has(trimmed.toLowerCase()))
-    return { valid: false, message: 'Por favor, informe o nome real da sua empresa.' }
-
-  if (isNonsense(trimmed))
-    return { valid: false, message: 'Por favor, informe um nome de empresa válido.' }
-
   return { valid: true }
 }

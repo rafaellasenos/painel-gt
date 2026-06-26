@@ -176,6 +176,11 @@ function CompanyAccordion({ group }: { group: CompanyGroup }) {
                     <p style={{ fontSize: '11px', color: '#555b6e', fontFamily: "'DM Sans', sans-serif", margin: '2px 0 0' }}>
                       {c.email}
                     </p>
+                    {c.rawCompany && c.rawCompany.toLowerCase() !== group.company.toLowerCase() && (
+                      <p style={{ fontSize: '10px', color: '#fb923c', fontFamily: "'DM Sans', sans-serif", margin: '2px 0 0' }}>
+                        cadastrou como: {c.rawCompany}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
